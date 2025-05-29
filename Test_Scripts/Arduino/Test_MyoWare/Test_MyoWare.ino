@@ -1,8 +1,8 @@
-const int sensorPin = A0;  // MyoWare signal pin connected to A0
+const int sensorPin = A1;  // MyoWare signal pin connected to A0
 int sensorValue = 0;       // Variable to store sensor reading
 
 void setup() {
-    Serial.begin(9600);  // Start serial communication
+    Serial.begin(115200);  // Start serial communication
 }
 
 void loop() {
