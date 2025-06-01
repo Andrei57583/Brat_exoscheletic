@@ -14,6 +14,8 @@ void setup() {
   pinMode(INB, OUTPUT);
   pinMode(PWM, OUTPUT);
 
+  
+
   Serial.begin(9600);
 
 }
@@ -52,7 +54,10 @@ void ridicare_mana() {
 
   while(angle < 90)
   { 
+    Serial.println("Unghi: ");
+    Serial.print(angle);
     analogWrite(PWM, 240);
+    delay(500);
     angle++;
   }
   
@@ -68,7 +73,10 @@ void coborare_mana() {
 
   while(angle > 0)
   {
+    Serial.println("Unghi: ");
+    Serial.print(angle);
     analogWrite(PWM, 240);
+    delay(500);
     angle--;
   }
   

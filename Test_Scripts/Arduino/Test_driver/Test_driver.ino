@@ -9,7 +9,7 @@ void setup() {
 
   Serial.begin(9600);
   delay(1000);
-  Serial.println("Test motor VNH5019 (fără M1FAULT)");
+  Serial.println("Test Driver Motor");
 
   digitalWrite(INA, HIGH);  // direcție înainte
   digitalWrite(INB, LOW);

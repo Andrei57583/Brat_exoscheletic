@@ -3,7 +3,7 @@ int potValue = 0;       // Variabilă pentru valoarea citită
 float angle = 0;        // Variabilă pentru unghiul calculat
 
 void setup() {
-    Serial.begin(9600);  // Inițializează comunicația serială
+    Serial.begin(115200);  // Inițializează comunicația serială
 }
 
 void loop() {

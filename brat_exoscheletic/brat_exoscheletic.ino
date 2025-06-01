@@ -1,37 +1,54 @@
 const int INA = 13;
 const int INB = 12;
 const int PWM = 11;
+
+const int PushButton = 2;
+
+int buttonState = 0;
+
 const int potPin = A0;  // Pinul unde este conectat potențiometrul
 
 int potValue = 0;       // Variabilă pentru valoarea citită
 float angle = 0;        // Variabilă pentru unghiul calculat
 
-bool flag_ridicat = 0;
+const int sensorPin = A1;  // MyoWare signal pin connected to A1
+
+int sensorValue = 0;       // Variable to store sensor reading
+
+bool flag_ridicat = false;
 
 void setup() {
   pinMode(INA, OUTPUT);
   pinMode(INB, OUTPUT);
   pinMode(PWM, OUTPUT);
-
-  Serial.begin(9600);
+  
+  pinMode(PushButton, INPUT_PULLUP);
+  Serial.begin(115200);
 
 }
 
 void loop() {
     
-  ridicare_mana();
-  
- // !flag_ridicat;
-  stop_motor();
+  sensorValue = analogRead(sensorPin);  // Read the analog signal
+  Serial.print("MyoWare Sensor Value: ");
+  Serial.println(sensorValue);          // Print the value to Serial Monitor
+  delay(100);  // Short delay to prevent overwhelming serial output
 
-  delay(3000);
+  buttonState = digitalRead(PushButton);
 
-  coborare_mana();
+  if (sensorValue >= 650 && flag_ridicat == false) 
+  {
+    ridicare_mana();
+    stop_motor();
+    flag_ridicat = !flag_ridicat;
+    delay(3000);
 
- // !flag_ridicat;
-  stop_motor();
-
-  delay(3000);
+  } else if ( buttonState == LOW && flag_ridicat == true) {
+    coborare_mana();
+    stop_motor();
+    flag_ridicat = !flag_ridicat;
+    delay(3000);
+  } 
 }
 
 
@@ -60,7 +77,7 @@ void coborare_mana() {
   digitalWrite(INA, LOW);  // direcție înapoi
   digitalWrite(INB, HIGH);
 
-  while(angle > 0)
+  while(angle > 5)
   {
     potValue = analogRead(potPin);  // Citește valoarea de la potențiometru
     angle = map(potValue, 0, 1023, 0, 300);  // Convertim valoarea într-unghi între 0° și 300°

@@ -1,13 +1,13 @@
-const int sensorPin = A1;  // MyoWare signal pin connected to A0
-int sensorValue = 0;       // Variable to store sensor reading
+const int sensorPin = A1;  // Pinul de semnal al senzorului MyoWare conectat la A1
+int sensorValue = 0;       // Variabilă pentru a stoca citirea senzorului
 
 void setup() {
-    Serial.begin(115200);  // Start serial communication
+    Serial.begin(115200);  // Inițierea comunicației seriale
 }
 
 void loop() {
-    sensorValue = analogRead(sensorPin);  // Read the analog signal
-    Serial.print("MyoWare Sensor Value: ");
-    Serial.println(sensorValue);          // Print the value to Serial Monitor
-    delay(100);  // Short delay to prevent overwhelming serial output
+    sensorValue = analogRead(sensorPin);  // Citirea semnalului analogic
+    Serial.print("Valoare senzor MyoWare: ");
+    Serial.println(sensorValue);          // Afișarea valorii în Monitorul Serial
+    delay(100);  // Întârziere scurtă pentru a preveni suprasolicitarea ieșirii seriale
 }
