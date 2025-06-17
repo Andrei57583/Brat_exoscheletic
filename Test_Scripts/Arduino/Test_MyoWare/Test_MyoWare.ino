@@ -16,14 +16,13 @@ void loop() {
     rect_sensorValue = analogRead(RectPin);  
 
     //Serial.print("\nValoare senzor MyoWare: \nEnv: ");
-    Serial.print("\n");
     Serial.print(env_sensorValue);          // Afișarea valorii în Monitorul Serial
     //Serial.print("; RAW: ");
-    Serial.print("\t");
+    Serial.print(",");
     Serial.print(raw_sensorValue);          // Afișarea valorii în Monitorul Serial
     //Serial.print("; Rect: ");
-    Serial.print("\t");
-    Serial.print(rect_sensorValue);          // Afișarea valorii în Monitorul Serial
+    Serial.print(",");
+    Serial.println(rect_sensorValue);          // Afișarea valorii în Monitorul Serial
 
     delay(100);  // Întârziere scurtă pentru a preveni suprasolicitarea ieșirii seriale
 }
