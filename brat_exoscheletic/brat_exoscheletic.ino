@@ -11,9 +11,9 @@ const int potPin = A0;  // Pinul unde este conectat potențiometrul
 int potValue = 0;       // Variabilă pentru valoarea citită
 float angle = 0;        // Variabilă pentru unghiul calculat
 
-const int sensorPin = A1;  // MyoWare signal pin connected to A1
+const int sensorPin = A1;  // Pinul de semnal al senzorului MyoWare conectat la A1
 
-int sensorValue = 0;       // Variable to store sensor reading
+int sensorValue = 0;       // Variabilă pentru a stoca citirea senzorului
 
 bool flag_ridicat = false;
 
@@ -29,11 +29,11 @@ void setup() {
 
 void loop() {
     
-  sensorValue = analogRead(sensorPin);  // Read the analog signal
+  sensorValue = analogRead(sensorPin);  // Citirea semnalului analog
   Serial.print("MyoWare Sensor Value: ");
-  Serial.println(sensorValue);          // Print the value to Serial Monitor
-  delay(100);  // Short delay to prevent overwhelming serial output
-
+  Serial.println(sensorValue);          // Afișarea valorii în Monitorul Serial
+  delay(100);  // Întârziere scurtă pentru a preveni suprasolicitarea ieșirii seriale
+  
   buttonState = digitalRead(PushButton);
 
   if (sensorValue >= 650 && flag_ridicat == false) 
@@ -41,13 +41,13 @@ void loop() {
     ridicare_mana();
     stop_motor();
     flag_ridicat = !flag_ridicat;
-    delay(3000);
+    //delay(3000);
 
   } else if ( buttonState == LOW && flag_ridicat == true) {
     coborare_mana();
     stop_motor();
     flag_ridicat = !flag_ridicat;
-    delay(3000);
+    //delay(3000);
   } 
 }
 
