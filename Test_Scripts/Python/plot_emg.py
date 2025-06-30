@@ -3,11 +3,11 @@ import os
 import matplotlib.pyplot as plt
 
 # === CONFIGURARE CALE ===
-# Presupunem că fișierul e în Semnale_test
+# Fișierul e în Semnale_test
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../Semnale_test'))
 
-# ← Înlocuiește cu numele fișierului tău salvat
-filename = "semnale_2025-06-17_19-04-44.csv"  
+# ← Înlocuiește cu numele fișierului salvat ultima oara
+filename = "semnale_2025-06-30_14-51-27.csv"  
 filepath = os.path.join(base_dir, filename)
 
 if not os.path.exists(filepath):
