@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../Semnale_test'))
 
 # ← Înlocuiește cu numele fișierului salvat ultima oara
-filename = "semnale_2025-06-30_14-51-27.csv"  
+filename = "semnale_2025-06-30_15-32-53.csv"  
 filepath = os.path.join(base_dir, filename)
 
 if not os.path.exists(filepath):
